@@ -1,11 +1,15 @@
-# simple_interest.py
+# Create a file named simple_interest.py
 
-# Define variables
+# Define the principal amount
 principal = 1000
+
+# Define the annual interest rate as a decimal
 rate = 0.05
+
+# Define the time in years
 time = 3
 
-# Calculate simple interest using the formula: interest = principal * rate * time
+# Calculate the simple interest using the formula: I = P * R * T
 interest = principal * rate * time
 
 # Print the calculated interest
