@@ -8,10 +8,10 @@ def create_daily_reminder():
     task = input("Enter your task: ")
     
     # Get user input for priority (ensure valid input)
-    priority = input("Priority (high/medium/low): ").lower()
+    priority = input("priority (high/medium/low): ").lower()
     while priority not in ['high', 'medium', 'low']:
         print("Invalid priority. Please enter 'high', 'medium', or 'low'.")
-        priority = input("Priority (high/medium/low): ").lower()
+        priority = input("priority (high/medium/low): ").lower()
     
     # Get user input for time-bound status (ensure valid input)
     time_bound_input = input("Is it time-bound? (yes/no): ").lower()
