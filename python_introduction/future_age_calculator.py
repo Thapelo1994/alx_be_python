@@ -1,7 +1,10 @@
 # Prompt the user for their current age
-current_age = int(input("Please enter your current age: "))
+current_age_str = input("How old are you? ")
 
-# Calculate the age in 2050 (assuming current year is 2023)
+# Convert the input string to an integer
+current_age = int(current_age_str)
+
+# Calculate the age in 2050 (2050 - 2023 = 27 years)
 age_in_2050 = current_age + 27
 
 # Print the result in the specified format
