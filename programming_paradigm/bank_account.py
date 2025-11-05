@@ -1,28 +1,60 @@
-import sys
-from bank_account import BankAccount
+class BankAccount:
+    def __init__(self, account_holder, balance=0):
+        self.account_holder = account_holder
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited: ${amount}. current balance: ${self.balance}.")
+        else:
+            print("Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        if amount > 0:
+            if self.balance >= amount:
+                self.balance -= amount
+                print(f"Withdrew: ${amount}. current balance: ${self.balance}.")
+            else:
+                print("Insufficient funds.")
+        else:
+            print("Withdrawal amount must be positive.")
+
+
+    def check_balance(self):
+        print(f"Current balance: ${self.balance}.")
 
 def main():
-    account = BankAccount(100)  # Example starting balance
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <command>:<amount>")
-        print("Commands: deposit, withdraw, display")
-        sys.exit(1)
+   account =  BankAccount("Thapelo")
 
-    command, *params = sys.argv[1].split(':')
-    amount = float(params[0]) if params else None
+   while True:
+       print("\n--- Banking System ---")
+       print("1. Deposit")
+       print("2. Withdraw")
+       print("3. Check Balance")
+       print("4. Exit")
 
-    if command == "deposit" and amount is not None:
-        account.deposit(amount)
-        print(f"Deposited: ${amount}")
-    elif command == "withdraw" and amount is not None:
-        if account.withdraw(amount):
-            print(f"Withdrew: ${amount}")
-        else:
-            print("Insufficient funds.")
-    elif command == "display":
-        account.display_balance()
-    else:
-        print("Invalid command.")
+       choice = input("choose an option: ")
+
+       if choice == '1':
+           amount = float(input("Enter amount to deposit: $"))
+           account.deposit(amount)
+       elif choice == '2':
+           amount = float(input("Enter amount to withdraw: $"))
+           account.withdraw(amount)
+       elif choice == '3':
+           account.check_balance()
+       elif choice == '4':
+           print("Exiting the banking system. Goodbye!")
+           break
+       else:
+           print("Invalid option. PLease try again.")
 
 if __name__ == "__main__":
     main()
+           
+
+        
+
+    
+    
