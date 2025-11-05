@@ -55,17 +55,17 @@ class BankAccount:
 
 # Example Usage:
 if __name__ == "__main__":
-    my_account = BankAccount(100.00)
+    my_account = BankAccount(317)
     my_account.display_balance()
 
-    my_account.deposit(50.75)
-    my_account.withdraw(25.50)
+    my_account.deposit(67)
+    my_account.withdraw(50)
 
     # Attempt to withdraw more than available
-    my_account.withdraw(200.00)
+    my_account.withdraw(50)
 
     # Attempt to deposit a negative amount
-    my_account.deposit(-10.00)
+    my_account.deposit()
 
     # Attempt to withdraw a negative amount
     my_account.withdraw(-5.00)
