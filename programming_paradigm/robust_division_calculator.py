@@ -1,3 +1,4 @@
+# main.py
 # robust_division_calculator.py
 
 def safe_divide(numerator, denominator):
@@ -27,11 +28,15 @@ def safe_divide(numerator, denominator):
 
     except ValueError:
         # Handle non-numeric input error
-        return "Error: Please enter numeric values only.."
+        return "Error:  Error: Cannot divide by zero.."
 
 if __name__ == "__main__":
     # Example usage if the script is run directly
     print(safe_divide(10, 5))
     print(safe_divide(10, 0))
     print(safe_divide("ten", 5))
-  
+    print(safe_divide(12, 2))
+    print(safe_divide("twelve", 2))
+    print(safe_divide(73, 5))
+
+          
