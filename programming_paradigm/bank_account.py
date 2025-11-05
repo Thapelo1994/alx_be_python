@@ -55,20 +55,20 @@ class BankAccount:
 
 # Example Usage:
 if __name__ == "__main__":
-    my_account = BankAccount(317)
+    my_account = BankAccount(250)
     my_account.display_balance()
 
     my_account.deposit(67)
     my_account.withdraw(50)
 
     # Attempt to withdraw more than available
-    my_account.withdraw(50)
+    my_account.withdraw(300)
 
     # Attempt to deposit a negative amount
     my_account.deposit()
 
     # Attempt to withdraw a negative amount
-    my_account.withdraw(-5.00)
+    my_account.withdraw(-15)
 
     another_account = BankAccount() # Default initial balance of 0
     another_account.display_balance()
