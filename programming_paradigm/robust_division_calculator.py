@@ -37,6 +37,6 @@ if __name__ == "__main__":
     print(safe_divide("ten", 5))
     print(safe_divide(12, 2))
     print(safe_divide("twelve", 2))
-    print(safe_divide(74, 5))
+    print(safe_divide(73, 5))
     
           
