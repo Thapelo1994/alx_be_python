@@ -21,8 +21,8 @@ class BankAccount:
             print("Withdrawal amount must be positive.")
 
 
-    def check_balance(self):
-        print(f"Current balance: ${self.balance}.")
+    def display_balance(current_balance):
+        print(f"Display_balance: ${current_balance}.")
 
 def main():
    account =  BankAccount("Thapelo")
@@ -31,7 +31,7 @@ def main():
        print("\n--- Banking System ---")
        print("1. Deposit")
        print("2. Withdraw")
-       print("3. Check Balance")
+       print("3. Display Balance")
        print("4. Exit")
 
        choice = input("choose an option: ")
@@ -43,7 +43,7 @@ def main():
            amount = float(input("Enter amount to withdraw: $"))
            account.withdraw(amount)
        elif choice == '3':
-           account.check_balance()
+           account.dispaly_balance()
        elif choice == '4':
            print("Exiting the banking system. Goodbye!")
            break
