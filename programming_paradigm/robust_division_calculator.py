@@ -27,11 +27,11 @@ def safe_divide(numerator, denominator):
 
     except ValueError:
         # Handle non-numeric input error
-        return "Error: Both inputs must be valid numbers."
+        return "Error: Please enter numeric values only.."
 
 if __name__ == "__main__":
     # Example usage if the script is run directly
-    print(safe_divide(10, 2))
+    print(safe_divide(10, 5))
     print(safe_divide(10, 0))
     print(safe_divide("ten", 5))
-    print(safe_divide("10", "two"))
+  
