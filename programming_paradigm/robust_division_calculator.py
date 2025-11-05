@@ -28,7 +28,7 @@ def safe_divide(numerator, denominator):
 
     except ValueError:
         # Handle non-numeric input error
-        return "Error:  Error: Cannot divide by zero.."
+        return "Error:  Please enter numeric values only."
 
 if __name__ == "__main__":
     # Example usage if the script is run directly
