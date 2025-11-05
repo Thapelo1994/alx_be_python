@@ -1,52 +1,62 @@
 class BankAccount:
-    """
-    A class to represent a bank account with basic operations.
-    """
-    def __init__(self, owner, initial_balance=0.0):
-        """
-        Initializes the bank account with an owner name and an optional initial balance.
-        """
-        self.owner = owner
+    def __init__(self, initial_balance=0):
         self.balance = initial_balance
-        print(f"Account created for {self.owner} with initial balance of ${self.balance:.2f}")
+
+    def display_balance(self):
+        print(f"current_balance: {self.balance:.2f}")
 
     def deposit(self, amount):
-        """
-        Deposits the specified amount into the account.
-        """
         if amount > 0:
             self.balance += amount
-            print(f"Deposited: ${amount:.2f}. New balance: ${self.balance:.2f}")
+            print(f"Deposited: {amount:.2f}")
+            self.display_balance()
         else:
             print("Deposit amount must be positive.")
 
     def withdraw(self, amount):
-        """
-        Withdraws the specified amount from the account, if sufficient funds are available.
-        """
-        if amount > 0 and amount <= self.balance:
+        if 0 < amount <= self.balance:
             self.balance -= amount
-            print(f"Withdrew: ${amount:.2f}. New balance: ${self.balance:.2f}")
-        elif amount <= 0:
-            print("Withdrawal amount must be positive.")
+            print(f"Withdrew: {amount:.2f}")
+            self.display_balance()
+        elif amount > self.balance:
+            print("Insufficient funds.")
         else:
-            print("Insufficient funds. Withdrawal failed.")
+            print("Withdrawal amount must be positive.")
 
-    def display_balance(self):
-        """
-        Displays the current balance of the account.
-        """
-        print(f"{self.owner}'s Balance: ${self.balance:.2f}")
+def main():
+    # Create an instance of the BankAccount class with an initial balance
+    account = BankAccount(initial_balance=100.00)
+    
+    print("Welcome to the Bank Account Management System")
 
-    def display_current_balance(self):
-        """
-        An alias method to display the current balance (as requested).
-        """
-        # This method calls the display_balance method for simplicity and consistency
-        self.display_balance()
+    while True:
+        print("\nMenu:")
+        print("1. Display Balance")
+        print("2. Deposit Funds")
+        print("3. Withdraw Funds")
+        print("4. Exit")
+        
+        choice = input("Enter your choice (1-4): ")
 
+        if choice == '1':
+            account.display_balance()
+        elif choice == '2':
+            try:
+                amount = float(input("Enter deposit amount: "))
+                account.deposit(amount)
+            except ValueError:
+                print("Invalid input. Please enter a numerical amount.")
+        elif choice == '3':
+            try:
+                amount = float(input("Enter withdrawal amount: "))
+                account.withdraw(amount)
+            except ValueError:
+                print("Invalid input. Please enter a numerical amount.")
+        elif choice == '4':
+            print("Thank you for using the system. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
 
 if __name__ == "__main__":
-    # Example usage of the BankAccount class
-    print("Welcome to the simple banking system.")
-    
+    main()
