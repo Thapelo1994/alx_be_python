@@ -3,5 +3,17 @@
         "./programming_paradigm/ test_",
         "./programming_paradigm/ test_",
         "./programming_paradigm/ test_"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./programming_paradigm",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestArgs": [
+        "programming_paradigm"
     ]
 }
