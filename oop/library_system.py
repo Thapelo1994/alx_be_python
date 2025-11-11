@@ -9,9 +9,9 @@ class Book:
         return f'"{self.title}" by {self.author}' #
 
 class PrintBook(Book):
-    def __init__(self, title, author, weight):
+    def __init__(self, title, author, page_count):
         super().__init__(title, author)
-        self.weight = weight
+        self.page_count = page_count
         
      # Add the __str__ method here
     def __str__(self):
