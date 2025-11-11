@@ -30,19 +30,26 @@ class EBook(Book):
         # Calls the parent Book's __str__ and appends specific details
         base_str = super().__str__()
         return f"{base_str} | EBook - {self.file_size}MB, format: {self.file_format}"
+    
 
-# Create some objects (instances)
-book_instance = Book("Generic Title", "Generic Author")
-print_book_instance = PrintBook("Print Title", "Print Author", 1.5)
-ebook_instance = EBook("Ebook Title", "Ebook Author", 2.1)
-not_a_book = "I am a string"
+class Library:
+    def __init__(self):
+        self.books = []  # Composition: Library "has a" list of books
 
-# The check using isinstance()
-# It returns True if the object is an instance of Book or any class derived from Book
-print(f"Is book_instance a Book or derived? {isinstance(book_instance, Book)}")
-print(f"Is print_book_instance a Book or derived? {isinstance(print_book_instance, Book)}")
-print(f"Is ebook_instance a Book or derived? {isinstance(ebook_instance, Book)}")
-print(f"Is not_a_book a Book or derived? {isinstance(not_a_book, Book)}")
+    def add_book(self, book):
+        """Adds a Book, EBook, or PrintBook instance to the library."""
+        if isinstance(book, Book):  # Ensures only valid book types are added
+            self.books.append(book)
+        else:
+            print("Error: Only Book, EBook, or PrintBook instances can be added.")
 
-# You can also check against a specific list of derived classes if needed
-print(f"Is print_book_instance PrintBook or EBook? {isinstance(print_book_instance, (PrintBook, EBook))}")
+    def list_books(self):
+        """Prints details of each book in the library."""
+        if not self.books:
+            print("The library is empty.")
+            return
+
+        print("\n--- Library Collection ---")
+        for book in self.books:
+            print(book.get_details())
+        print("--------------------------")
